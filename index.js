@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener("DOMContentLoaded", () => {
   const hamburger = document.getElementById("hamburger");
   const navLinks = document.getElementById("nav-links");
@@ -9,3 +8,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
