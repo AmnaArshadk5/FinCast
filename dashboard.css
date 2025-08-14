@@ -17,9 +17,9 @@ body {
   flex-direction: column;
 }
 main.dashboard {
-  flex: 1; /* Pushes footer down */
+  flex: 1; 
 }
-/* ---- Navbar ---- */
+
 .navbar {
   background-color: rgba(20, 53, 86, 0.95);
   padding: 20px 30px;
@@ -56,7 +56,6 @@ main.dashboard {
   color: #00c8ff;
 }
 
-/* ---- Dashboard ---- */
 .dashboard {
   padding: 40px 30px;
   flex: 1;
@@ -130,7 +129,6 @@ canvas:hover {
   font-size: 0.95em;
 }
 
-/* ---- Footer ---- */
 footer {
   background-color: #000;
   color: white;
@@ -139,7 +137,6 @@ footer {
   font-size: 14px;
 }
 
-/* ---- Hamburger Icon ---- */
 .menu-toggle {
   display: none;
   font-size: 28px;
@@ -147,7 +144,6 @@ footer {
   color: white;
 }
 
-/* ---- Phones only (≤480px) ---- */
 @media (max-width: 800px) {
   .desktop-links {
     display: none;
@@ -169,3 +165,4 @@ footer {
     display: block;
   }
 }
+
