@@ -104,27 +104,5 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-function fillTestData() {
-  document.getElementById('currentAssets').value = 150000;
-  document.getElementById('currentLiabilities').value = 80000;
-  document.getElementById('inventories').value = 30000;
-  document.getElementById('cogs').value = 120000;
-  document.getElementById('netSales').value = 200000;
-  document.getElementById('accountsReceivable').value = 40000;
-  document.getElementById('netFixedAssets').value = 250000;
-  document.getElementById('totalAssets').value = 400000;
-  document.getElementById('totalDebt').value = 180000;
-  document.getElementById('totalLiabilities').value = 220000;
-  document.getElementById('ebit').value = 50000;
-  document.getElementById('interestExpense').value = 10000;
-  document.getElementById('ebitda').value = 65000;
-  document.getElementById('leasePayments').value = 5000;
-  document.getElementById('principalRepayments').value = 8000;
-  document.getElementById('netIncome').value = 30000;
-  document.getElementById('equity').value = 180000;
-  document.getElementById('sharesOutstanding').value = 10000;
-  document.getElementById('sharePrice').value = 25;
-  document.getElementById('cashFlow').value = 45000;
-  document.getElementById('bookValueEquity').value = 180000;
-}
+
 
