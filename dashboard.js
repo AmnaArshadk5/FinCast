@@ -24,13 +24,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const years = Array.from({ length: cashFlows.length }, (_, i) => `Year ${i}`);
 
-  // THESE LINES ARE COMMENTED OUT TO REMOVE THE BOTTOM-LEFT LABELS
-  // document.getElementById("npvValue").textContent = `${npv.toFixed(2)} NPV`;
-  // document.getElementById("piValue").textContent = `${pi.toFixed(2)} PI`;
-
-  // Ensure these elements exist in your HTML if you want to display them
-  // Otherwise, if they are meant to be removed, ensure they are also removed from HTML
-  // Example: <span id="irrValue"></span>
   document.getElementById("irrValue").textContent = `${irr}%`;
   document.getElementById("mirrValue").textContent = `${mirr}%`;
   document.getElementById("dpbpValue").textContent = `${dpbp} years`;
@@ -51,16 +44,16 @@ document.addEventListener("DOMContentLoaded", function () {
     suggestionList.appendChild(li);
   });
 
-  // Modern color palette
-  const primary = "#3A8DFF";     // Bright Blue
-  const accent = "#5CE1E6";     // Aqua
-  const highlight = "#9B5DE5";  // Purple
-  const neutral = "#2C3E50";    // Dark Gray/Blue for 'Remaining' part of gauges
-  const textLight = "#ffffff";  // White for text and labels
+ 
+  const primary = "#3A8DFF";     
+  const accent = "#5CE1E6";     
+  const highlight = "#9B5DE5";  
+  const neutral = "#2C3E50";     
+  const textLight = "#ffffff";  
 
   const discountRate = parseFloat(data.discountRate);
 
-  // --- Bar Chart (IRR vs Discount Rate) ---
+  //Bar Chart (IRR vs Discount Rate) 
   new Chart(document.getElementById("barChart"), {
     type: "bar",
     data: {
@@ -78,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
         y: {
           beginAtZero: true,
           ticks: {
-            color: textLight // White Y-axis ticks
+            color: textLight 
           },
           grid: {
             color: "rgba(255, 255, 255, 0.3)",
@@ -87,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         },
         x: {
           ticks: {
-            color: textLight // White X-axis ticks
+            color: textLight 
           },
           grid: {
             color: "rgba(255, 255, 255, 0.3)",
@@ -99,14 +92,14 @@ document.addEventListener("DOMContentLoaded", function () {
         legend: {
           display: true,
           labels: {
-            color: textLight // White legend label "Rate (%)"
+            color: textLight 
           }
         }
       }
     }
   });
 
-  // --- Cumulative Cash Flow Line Chart ---
+  // Cumulative Cash Flow Line Chart 
   let cumulative = 0;
   const cumulativeFlows = cashFlows.map(cf => cumulative += cf);
 
@@ -131,20 +124,20 @@ document.addEventListener("DOMContentLoaded", function () {
         legend: {
           display: true,
           labels: {
-            color: textLight // White legend label "Cumulative Cash Flow"
+            color: textLight 
           }
         }
       },
       scales: {
         y: {
-          ticks: { color: textLight }, // White Y-axis ticks
+          ticks: { color: textLight }, 
           grid: {
             color: "rgba(255, 255, 255, 0.3)",
             lineWidth: 1.5
           }
         },
         x: {
-          ticks: { color: textLight }, // White X-axis ticks
+          ticks: { color: textLight },
           grid: {
             color: "rgba(255, 255, 255, 0.3)",
             lineWidth: 1.5
@@ -153,8 +146,6 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
-
-  // --- NPV vs. Investment Chart (Doughnut/Pie) ---
   new Chart(document.getElementById("pieChart"), {
     type: "doughnut",
     data: {
@@ -162,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function () {
       datasets: [{
         data: [npv, Math.abs(cashFlows[0])],
         backgroundColor: [primary, accent],
-        borderColor: '#222B3A', // Darker border for separation
+        borderColor: '#222B3A', 
         borderWidth: 2
       }]
     },
@@ -173,14 +164,13 @@ document.addEventListener("DOMContentLoaded", function () {
         legend: {
           position: "bottom",
           labels: {
-            color: textLight // White legend labels for NPV and Investment
+            color: textLight 
           }
         }
       }
     }
   });
 
-  // Plugin to display NPV in the center of npvGauge chart
   const npvCenterText = {
     id: 'npvCenterText',
     beforeDraw(chart) {
@@ -193,22 +183,19 @@ document.addEventListener("DOMContentLoaded", function () {
       const text = `NPV\n${npv.toFixed(2)}`;
       const lines = text.split("\n");
 
-      // Dynamic font size calculation based on the inner radius and number of lines
-      let baseFontSize = (innerRadius / (lines.length > 1 ? 2.5 : 1.5)); // Adjusted divisors for better fit
+      let baseFontSize = (innerRadius / (lines.length > 1 ? 2.5 : 1.5)); 
       let fontSize = `${baseFontSize.toFixed(2)}em`;
 
       ctx.font = `bold ${fontSize} sans-serif`;
       ctx.fillStyle = textLight;
       ctx.textBaseline = "middle";
-      ctx.textAlign = "center"; // Center align the text horizontally
+      ctx.textAlign = "center"; 
 
-      // Measure the actual height of the text block to center it precisely
-      const measuredTextHeight = ctx.measureText("M").width * lines.length * 1.2; // Adjusted for slightly more line spacing
-      const lineHeight = measuredTextHeight / lines.length; // Average line height
+      const measuredTextHeight = ctx.measureText("M").width * lines.length * 1.2;
+      const lineHeight = measuredTextHeight / lines.length; 
 
       lines.forEach((line, i) => {
-        const textX = width / 2; // X position is center because textAlign is 'center'
-        // Calculate Y position to perfectly center the entire block of text
+        const textX = width / 2; 
         const textY = (height / 2) - (measuredTextHeight / 2) + (i * lineHeight) + (lineHeight / 2);
         ctx.fillText(line, textX, textY);
       });
@@ -217,38 +204,38 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // --- NPV Gauge Chart ---
+  //  NPV Gauge Chart
   new Chart(document.getElementById("npvGauge"), {
     type: "doughnut",
     data: {
       labels: ["NPV", "Remaining"],
       datasets: [{
-        data: [npv, Math.max(0, 100 - npv)], // Ensure 'Remaining' doesn't go negative
-        backgroundColor: [primary, neutral], // Primary blue for NPV, neutral dark gray for remaining
-        borderColor: '#222B3A', // Subtle dark border for definition
-        borderWidth: 3 // Thicker border
+        data: [npv, Math.max(0, 100 - npv)], 
+        backgroundColor: [primary, neutral],
+        borderColor: '#222B3A', 
+        borderWidth: 3 
       }]
     },
     options: {
-      cutout: "70%", // Slightly smaller cutout to give more room for text
-      rotation: -90, // Start from top
-      circumference: 360, // Full circle
+      cutout: "70%", 
+      rotation: -90, 
+      circumference: 360, 
       animation: {
         animateRotate: true,
         animateScale: true,
-        duration: 1500 // Slightly longer animation
+        duration: 1500 
       },
       plugins: {
         legend: {
-          display: true, // Display legend
-          position: 'top', // Position legend at the top
+          display: true, 
+          position: 'top', 
           labels: {
-            color: textLight, // White labels
-            boxWidth: 15, // Smaller color boxes
-            padding: 20 // Padding between legend items
+            color: textLight, 
+            boxWidth: 15, 
+            padding: 20 
           }
         },
-        tooltip: { // Enhance tooltips
+        tooltip: { 
           enabled: true,
           backgroundColor: 'rgba(0,0,0,0.7)',
           titleColor: textLight,
@@ -267,13 +254,12 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         }
       },
-      maintainAspectRatio: false, // Allows chart to take up available space better
+      maintainAspectRatio: false, 
       responsive: true
     },
     plugins: [npvCenterText]
   });
 
-  // Plugin to display PI in the center of piGauge chart
   const piCenterText = {
     id: 'piCenterText',
     beforeDraw(chart) {
@@ -286,8 +272,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const text = `PI\n${pi.toFixed(2)}`;
       const lines = text.split("\n");
 
-      // Dynamic font size calculation based on the inner radius and number of lines
-      let baseFontSize = (innerRadius / (lines.length > 1 ? 2.5 : 1.5)); // Adjusted divisors
+      let baseFontSize = (innerRadius / (lines.length > 1 ? 2.5 : 1.5)); 
       let fontSize = `${baseFontSize.toFixed(2)}em`;
 
       ctx.font = `bold ${fontSize} sans-serif`;
@@ -308,22 +293,22 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  // --- PI Gauge Chart ---
+  // PI Gauge Chart 
   new Chart(document.getElementById("piGauge"), {
     type: "doughnut",
     data: {
       labels: ["PI", "Remaining"],
       datasets: [{
-        data: [pi, Math.max(0, 2 - pi)], // Assuming a max PI of 2 for gauge scale
-        backgroundColor: [primary, neutral], // Primary blue for PI, neutral dark gray for remaining
-        borderColor: '#222B3A', // Subtle dark border for definition
-        borderWidth: 3 // Thicker border
+        data: [pi, Math.max(0, 2 - pi)], 
+        backgroundColor: [primary, neutral], 
+        borderColor: '#222B3A', 
+        borderWidth: 3 
       }]
     },
     options: {
-      cutout: "70%", // Slightly smaller cutout
-      rotation: -90, // Start from top
-      circumference: 360, // Full circle
+      cutout: "70%", 
+      rotation: -90, 
+      circumference: 360, 
       animation: {
         animateRotate: true,
         animateScale: true,
@@ -334,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
           display: true,
           position: 'top',
           labels: {
-            color: textLight, // White labels
+            color: textLight, 
             boxWidth: 15,
             padding: 20
           }
@@ -351,5 +336,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     plugins: [piCenterText],
   });
+
 
 });
