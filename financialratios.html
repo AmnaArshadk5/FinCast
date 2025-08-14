@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FinCast – Ratio Analyzer</title>
+  <link rel="stylesheet" href="financialratios.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+  <div class="navbar-container">
+    <img src="FINCAST.png" alt="FinCast Logo" class="logo" width="80" />
+
+    <nav class="desktop-links">
+      <a href="index.html">Home</a>
+      <a href="financialratios.html">Ratio Analysis</a>
+      <a href="capitalbudgeting.html">Capital Budgeting Techniques</a>
+    </nav>
+
+    <div class="menu-toggle" id="hamburger">&#9776;</div>
+  </div>
+</header>
+
+<main>
+  <section class="input-section">
+    <h2>Enter Financial Data for Ratio Analysis</h2>
+    <div class="financial-ratios-container">
+      <div class="input-card">
+        <form class="input-form" id="ratioForm">
+          <label>Current Assets <input type="number" id="currentAssets" required /></label>
+          <label>Current Liabilities <input type="number" id="currentLiabilities" required /></label>
+          <label>Inventories <input type="number" id="inventories" required /></label>
+          <label>Total COGS <input type="number" id="cogs" required /></label>
+          <label>Net Credit Sales <input type="number" id="netSales" required /></label>
+          <label>Accounts Receivable <input type="number" id="accountsReceivable" required /></label>
+          <label>Net Fixed Assets <input type="number" id="netFixedAssets" required /></label>
+          <label>Total Assets <input type="number" id="totalAssets" required /></label>
+          <label>Total Debt <input type="number" id="totalDebt" required /></label>
+          <label>Total Liabilities <input type="number" id="totalLiabilities" required /></label>
+          <label>EBIT <input type="number" id="ebit" required /></label>
+          <label>Interest Expense <input type="number" id="interestExpense" required /></label>
+          <label>EBITDA <input type="number" id="ebitda" required /></label>
+          <label>Lease Payments <input type="number" id="leasePayments" required /></label>
+          <label>Principal Repayments <input type="number" id="principalRepayments" required /></label>
+          <label>Net Income <input type="number" id="netIncome" required /></label>
+          <label>Equity <input type="number" id="equity" required /></label>
+          <label>Shares Outstanding <input type="number" id="sharesOutstanding" required /></label>
+          <label>Share Price <input type="number" id="sharePrice" required /></label>
+          <label>Cash Flow <input type="number" id="cashFlow" required /></label>
+          <label>Book Value of Equity <input type="number" id="bookValueEquity" required /></label>
+
+          <button type="submit">Calculate Ratios</button> 
+        </form>
+      </div>
+    </div>
+
+    <!-- Results hidden by default -->
+    <div class="results-section" id="resultsSection" style="display:none;">
+      <h2>Your Financial Ratios</h2>
+      <div id="ratios-container" class="ratios-grid"></div>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <p>© 2025 FinCast. Built with HTML, CSS & JS by Amna.</p>
+  </footer>
+
+
+<script src="financialratios.js"></script>
+<script>
+  // Simple JS to show results section after calculation
+  document.getElementById('ratioForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    document.getElementById('resultsSection').style.display = 'block';
+    // your calculation logic here...
+  });
+</script>
+</body>
+</html>

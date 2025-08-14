@@ -1,0 +1,232 @@
+/* Reset & Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #143556, #2885D1);
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  background-color: rgba(20, 53, 86, 0.95);
+  padding: 20px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.desktop-links {
+  display: flex;
+  gap: 20px;
+}
+
+.desktop-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.desktop-links a:hover {
+  color: #00c8ff;
+}
+
+/* Main Content */
+main {
+  flex: 1;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.capital-budgeting-container {
+  background-color: #1e3c57;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-top: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f4f8;
+  color: #143556;
+  font-size: 14px;
+}
+
+/* Cash Flow Inputs */
+#cashFlowsContainer {
+  margin-top: 20px;
+}
+
+.cashflow-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.cashflow-group input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background-color: #f0f4f8;
+  color: #143556;
+  font-size: 14px;
+}
+
+.removeBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.removeBtn:hover {
+  background-color: darkred;
+}
+
+/* Buttons Row */
+.cashflow-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cashflow-buttons button {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* General Buttons */
+button {
+  padding: 12px;
+  background-color: #00c8ff;
+  color: #f6f6f6;
+  font-weight: bold;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #00eaff;
+}
+
+/* Results Box */
+.results {
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.results h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #00c8ff;
+}
+
+.results p {
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+/* Footer */
+footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+}
+
+/* Mobile Menu (phones only) */
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+@media screen and (max-width: 600px) {
+  .desktop-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(20, 53, 86, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .desktop-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .capital-budgeting-container {
+    padding: 20px;
+  }
+}

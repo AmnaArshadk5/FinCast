@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinCast Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@2.2.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script>
+    Chart.register(window['chartjs-plugin-annotation']);
+  </script>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <img src="FINCAST.png" alt="FinCast Logo" class="logo" width="80" length="80"/>
+       <div class="desktop-links" id="nav-links">
+        <a href="home.html">Home</a>
+        <a href="financialratios.html">Ratio Analysis</a>
+        <a href="capitalbudgeting.html">Capital Budgeting Techniques</a>
+      </div>
+          <div class="menu-toggle" id="hamburger">☰</div>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <h1>Project Financial Health Dashboard</h1>
+
+    <section class="grid-container">
+
+      <div class="card">
+        <h3>IRR vs. Discount Rate</h3>
+        <canvas id="barChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Cumulative Cash Flow</h3>
+        <canvas id="lineChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>NPV vs. Investment</h3>
+        <canvas id="pieChart"></canvas>
+      </div>
+
+      <div class="card">
+        <h3>Capital Summary (NPV)</h3>
+        <canvas id="npvGauge"></canvas>
+        <div id="npvValue" class="gauge-label"></div>
+      </div>
+
+      <div class="card">
+        <h3>Profitability (PI)</h3>
+        <canvas id="piGauge"></canvas>
+        <div id="piValue" class="gauge-label"></div>
+      </div>
+
+      <div class="card">
+        <h3>Advanced Metrics</h3>
+        <p>IRR: <strong id="irrValue">--</strong></p>
+        <p>MIRR: <strong id="mirrValue">--</strong></p>
+        <p>DPBP: <strong id="dpbpValue">--</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Suggestions</h3>
+        <ul id="suggestionList" class="suggestions"></ul>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="dashboard.js"></script>
+
+  
+  <footer>
+    <p>© 2025 FinCast. Built with HTML, CSS & JS by Amna.</p>
+  </footer>
+
+</body>
+</html>

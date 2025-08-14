@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FinCast – Capital Budgeting Calculator</title>
+  <link rel="stylesheet" href="capitalbudgeting.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="navbar-container">
+      <img src="FINCAST.png" alt="FinCast Logo" class="logo" width="80" />
+      <div class="desktop-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="financialratios.html">Ratio Analysis</a>
+        <a href="capitalbudgeting.html">Capital Budgeting Techniques</a>
+      </div>
+      <div class="menu-toggle" id="hamburger">☰</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container" id="calculator">
+      <h2 class="section-title">Enter Your Project Details</h2>
+      <div class="capital-budgeting-container">
+        <div class="form-grid">
+          <label>
+            Initial Investment:
+            <input type="number" id="initialInvestment" />
+          </label>
+          <label>
+            Discount Rate (%):
+            <input type="number" id="discountRate" />
+          </label>
+          <label>
+            Reinvestment Rate (% for MIRR):
+            <input type="number" id="reinvestmentRate"/>
+          </label>
+        </div>
+
+        <div id="cashFlowsContainer">
+          <h4>Enter Cash Flows:</h4>
+        </div>
+
+        <div class="cashflow-buttons">
+          <button id="addYearBtn">+ Add Year</button>
+          <button id="calculateBtn">Calculate</button>
+          <button id="goToDashboardBtn">Go to Dashboard</button>
+        </div>
+
+        <div class="results" id="results">
+          <h3>Results</h3>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 FinCast. Built with HTML, CSS & JS by Amna.</p>
+  </footer>
+
+  <script src="capitalbudgeting.js"></script>
+</body>
+</html>
