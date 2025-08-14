@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile menu toggle setup
+
   const hamburger = document.getElementById("hamburger");
-  const navLinks = document.querySelector(".desktop-links"); // matches CSS
+  const navLinks = document.querySelector(".desktop-links"); 
 
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Ratio form calculation and result display
   const ratioForm = document.getElementById("ratioForm");
   if (ratioForm) {
     ratioForm.addEventListener("submit", function (e) {
@@ -99,13 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         container.appendChild(section);
       }
 
-      // Show the results section once calculated
+    
       document.getElementById("resultsSection").style.display = "block";
     });
   }
 });
 
-// Helper function: fills form with sample data (run manually when needed)
 function fillTestData() {
   document.getElementById('currentAssets').value = 150000;
   document.getElementById('currentLiabilities').value = 80000;
@@ -129,3 +127,4 @@ function fillTestData() {
   document.getElementById('cashFlow').value = 45000;
   document.getElementById('bookValueEquity').value = 180000;
 }
+
