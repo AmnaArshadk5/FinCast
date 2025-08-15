@@ -153,35 +153,31 @@ button[type="submit"]:hover {
     min-height: 160px; 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;    
+    justify-content: flex-start; 
+    align-items: flex-start; 
+    gap: 8px; 
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-
-.ratio-section:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 0 18px rgba(0, 200, 255, 0.2);
 }
 
 .ratio-section h3 {
     font-size: 18px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     color: #00c8ff;
 }
 
 .ratio-section ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .ratio-section li {
     text-align: left;
-    padding: 4px 0;
     font-size: 14px;
+    margin-bottom: 4px; 
 }
 
-/* Footer */
+
 footer {
     background-color: #000000;
     color: white;
@@ -229,5 +225,6 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 
 
