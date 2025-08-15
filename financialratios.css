@@ -153,9 +153,11 @@ button[type="submit"]:hover {
     min-height: 160px; 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
+    align-items: flex-start;    
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 
 .ratio-section:hover {
     transform: translateY(-4px);
@@ -227,4 +229,5 @@ footer {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
 
