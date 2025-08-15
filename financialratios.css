@@ -1,0 +1,249 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #143556, #2885D1);
+  color: #ffffff;
+  line-height: 1.6;
+}
+main {
+    flex: 1 ;
+}
+
+.navbar {
+    background-color: rgba(20, 53, 86, 0.95);
+    padding: 15px 30px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 40px;
+    opacity: 0.9;
+}
+
+.desktop-links {
+    display: flex;
+    gap: 20px;
+}
+
+.desktop-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.desktop-links a:hover {
+    color:#00c8ff;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+.input-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.input-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.financial-ratios-container {
+    background-color: #1e3c57;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
+}
+
+.input-card {
+    background:#143556;
+    padding: 25px;
+    border-radius: 16px;
+}
+
+.input-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+
+.input-form label {
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    color: #ffffff;
+}
+
+.input-form input {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f0f4f8;
+    color: #143556;
+    font-size: 14px;
+}
+
+button[type="submit"] {
+    grid-column: 1 / -1;
+    margin-top: 10px;
+    padding: 14px;
+    background-color: #00c8ff;
+    color: var(--input-bg-color);
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #00eaff;
+}
+
+.results-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.ratios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+}
+.ratio-section {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 160px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start; 
+    gap: 8px; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ratio-section h3 {
+    font-size: 18px;
+    margin-bottom: 6px; 
+    color: #00c8ff;
+}
+
+.ratio-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ratio-section li {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 4px; 
+}
+
+
+footer {
+  background-color: #000000;
+  color: white;
+  text-align: center;
+  padding: 13px;
+  font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+     .desktop-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(20, 53, 86, 0.95);
+    position: absolute;
+    top: 70px;
+    right: 20px;
+    width: 200px;
+    padding: 20px;
+    border-radius: 10px;
+  }
+   .desktop-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .input-form,
+    .ratios-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+.desktop-links {
+  display: flex;
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .desktop-links {
+    display: none;
+    flex-direction: column;
+    background-color:  #143556;
+    position: absolute;
+    top: 70px;
+    right: 10px;
+    padding: 10px;
+    border: 1px solid #143556;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+
+  .desktop-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
